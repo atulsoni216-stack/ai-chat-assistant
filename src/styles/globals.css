@@ -1,0 +1,118 @@
+@import "@fontsource/inter/300.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 196 100% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 187 92% 95%;
+    --accent-foreground: 196 100% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 196 100% 42%;
+
+    --radius: 1.25rem;
+
+    --sidebar-background: 210 30% 98.5%;
+    --sidebar-foreground: 222 47% 11.2%;
+    --sidebar-muted: 215 16% 47%;
+    --sidebar-border: 214 32% 93%;
+    --sidebar-accent: 199 89% 96%;
+  }
+}
+
+*, *::before, *::after, html, body, #root, button, input, textarea, select {
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar for sidebar chat history */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Gradient text utilities */
+.text-gradient-cyan-blue {
+  background: linear-gradient(135deg, #00d2df 0%, #00b4d8 40%, #0077b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.2em;
+  padding-left: 0.05em;
+  padding-right: 0.05em;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(90deg, #06d6a0 0%, #00b4d8 50%, #0077b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 0.2em;
+  padding-left: 0.05em;
+  padding-right: 0.05em;
+}
+
+/* Running Gradient Stroke Animation along the Chatbar border */
+@keyframes beamRun {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -100;
+  }
+}
+
+.animate-beam-run {
+  animation: beamRun 4.5s linear infinite;
+}
+
+/* Subtle bottom ambient gradient glow */
+.ambient-bottom-glow {
+  background: radial-gradient(circle at 60% 95%, rgba(0, 210, 223, 0.16) 0%, rgba(6, 214, 160, 0.1) 25%, rgba(0, 119, 182, 0.05) 45%, transparent 70%);
+}
