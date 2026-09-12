@@ -8,6 +8,7 @@ interface ChatHistoryProps {
   onSelectChat: (id: string) => void
   onRenameChat?: (id: string, newTitle: string) => void
   onDeleteChat?: (id: string) => void
+  onTogglePin?: (id: string) => void
 }
 
 export const ChatHistory: React.FC<ChatHistoryProps> = ({
@@ -16,12 +17,40 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({
   onSelectChat,
   onRenameChat,
   onDeleteChat,
+  onTogglePin,
 }) => {
-  const recentItems = items.filter((item) => item.section === "RECENT")
-  const yesterdayItems = items.filter((item) => item.section === "YESTERDAY")
+  const pinnedItems = items.filter((item) => item.isPinned)
+  const recentItems = items.filter((item) => !item.isPinned && item.section === "RECENT")
+  const yesterdayItems = items.filter((item) => !item.isPinned && item.section === "YESTERDAY")
 
   return (
     <div className="flex-1 overflow-y-auto px-3 py-1 custom-scrollbar space-y-4">
+      {/* PINNED Section */}
+      {pinnedItems.length > 0 && (
+        <div className="space-y-1">
+          <div className="px-3 py-1">
+            <h3 className="text-[11px] font-semibold tracking-wider text-slate-400 uppercase select-none">
+              Pinned
+            </h3>
+          </div>
+          <div className="space-y-0.5">
+            {pinnedItems.map((item) => (
+              <ChatHistoryItem
+                key={item.id}
+                item={{
+                  ...item,
+                  isActive: item.id === activeChatId,
+                }}
+                onSelect={onSelectChat}
+                onRename={onRenameChat}
+                onDelete={onDeleteChat}
+                onTogglePin={onTogglePin}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* RECENT Section */}
       {recentItems.length > 0 && (
         <div className="space-y-1">
@@ -41,6 +70,7 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({
                 onSelect={onSelectChat}
                 onRename={onRenameChat}
                 onDelete={onDeleteChat}
+                onTogglePin={onTogglePin}
               />
             ))}
           </div>
@@ -66,6 +96,7 @@ export const ChatHistory: React.FC<ChatHistoryProps> = ({
                 onSelect={onSelectChat}
                 onRename={onRenameChat}
                 onDelete={onDeleteChat}
+                onTogglePin={onTogglePin}
               />
             ))}
           </div>

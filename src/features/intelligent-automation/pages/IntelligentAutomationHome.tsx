@@ -76,6 +76,14 @@ export const IntelligentAutomationHome: React.FC = () => {
     }
   }
 
+  const handleTogglePin = (id: string) => {
+    setChatItems((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, isPinned: !item.isPinned } : item
+      )
+    )
+  }
+
   const handleSendMessage = (
     text: string,
     files: UploadedFileItem[],
@@ -118,6 +126,7 @@ export const IntelligentAutomationHome: React.FC = () => {
       onSelectChat={handleSelectChat}
       onRenameChat={handleRenameChat}
       onDeleteChat={handleDeleteChat}
+      onTogglePin={handleTogglePin}
       activeNav={activeNav}
       onSelectNav={handleSelectNav}
       onLogout={handleLogout}

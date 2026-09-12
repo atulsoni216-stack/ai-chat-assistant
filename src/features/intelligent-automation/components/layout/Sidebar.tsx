@@ -22,6 +22,7 @@ interface SidebarProps {
   onSelectChat: (id: string) => void
   onRenameChat?: (id: string, newTitle: string) => void
   onDeleteChat?: (id: string) => void
+  onTogglePin?: (id: string) => void
   onLogout?: () => void
   activeNav?: string
   onSelectNav?: (id: string) => void
@@ -38,6 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onSelectChat,
   onRenameChat,
   onDeleteChat,
+  onTogglePin,
   onLogout,
   activeNav,
   onSelectNav,
@@ -84,6 +86,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             onSelectChat={onSelectChat}
             onRenameChat={onRenameChat}
             onDeleteChat={onDeleteChat}
+            onTogglePin={onTogglePin}
           />
 
           {/* User Profile Card */}

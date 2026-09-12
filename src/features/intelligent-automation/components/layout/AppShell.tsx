@@ -13,6 +13,7 @@ interface AppShellProps {
   onSelectChat: (id: string) => void
   onRenameChat?: (id: string, newTitle: string) => void
   onDeleteChat?: (id: string) => void
+  onTogglePin?: (id: string) => void
   onLogout?: () => void
   activeNav?: string
   onSelectNav?: (id: string) => void
@@ -27,6 +28,7 @@ export const AppShell: React.FC<AppShellProps> = ({
   onSelectChat,
   onRenameChat,
   onDeleteChat,
+  onTogglePin,
   onLogout,
   activeNav,
   onSelectNav,
@@ -49,6 +51,7 @@ export const AppShell: React.FC<AppShellProps> = ({
         onSelectChat={onSelectChat}
         onRenameChat={onRenameChat}
         onDeleteChat={onDeleteChat}
+        onTogglePin={onTogglePin}
         onLogout={onLogout}
         activeNav={activeNav}
         onSelectNav={onSelectNav}
@@ -65,6 +68,7 @@ export const AppShell: React.FC<AppShellProps> = ({
         onSelectChat={onSelectChat}
         onRenameChat={onRenameChat}
         onDeleteChat={onDeleteChat}
+        onTogglePin={onTogglePin}
         onLogout={onLogout}
         activeNav={activeNav}
         onSelectNav={onSelectNav}

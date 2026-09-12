@@ -5,6 +5,7 @@ export interface ChatItem {
   section: "RECENT" | "YESTERDAY"
   timestamp?: string
   isActive?: boolean
+  isPinned?: boolean
 }
 
 export interface UserProfileData {

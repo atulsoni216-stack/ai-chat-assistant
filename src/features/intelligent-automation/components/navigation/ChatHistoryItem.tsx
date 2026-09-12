@@ -16,6 +16,7 @@ interface ChatHistoryItemProps {
   onSelect: (id: string) => void
   onRename?: (id: string, newTitle: string) => void
   onDelete?: (id: string) => void
+  onTogglePin?: (id: string) => void
 }
 
 export const ChatHistoryItem: React.FC<ChatHistoryItemProps> = ({
@@ -23,6 +24,7 @@ export const ChatHistoryItem: React.FC<ChatHistoryItemProps> = ({
   onSelect,
   onRename,
   onDelete,
+  onTogglePin,
 }) => {
   const [isHovered, setIsHovered] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
@@ -50,8 +52,11 @@ export const ChatHistoryItem: React.FC<ChatHistoryItemProps> = ({
           : "text-slate-700 hover:bg-slate-200/50 hover:text-slate-900 border border-transparent"
       )}
     >
-      {/* Title / Inline edit - font weight remains identical between active and non-active states */}
-      <div className="flex-1 min-w-0 pr-1.5">
+      {/* Title / Inline edit */}
+      <div className="flex-1 min-w-0 pr-1.5 flex items-center gap-1.5">
+        {item.isPinned && (
+          <Pin className="h-3 w-3 text-cyan-600 fill-cyan-500/20 flex-shrink-0" />
+        )}
         {isEditing ? (
           <input
             type="text"
@@ -102,9 +107,12 @@ export const ChatHistoryItem: React.FC<ChatHistoryItemProps> = ({
               <Copy className="h-3.5 w-3.5 text-slate-500" />
               <span>Copy title</span>
             </DropdownMenuItem>
-            <DropdownMenuItem className="gap-2 rounded-[6px]">
-              <Pin className="h-3.5 w-3.5 text-slate-500" />
-              <span>Pin chat</span>
+            <DropdownMenuItem
+              onClick={() => onTogglePin?.(item.id)}
+              className="gap-2 rounded-[6px]"
+            >
+              <Pin className={cn("h-3.5 w-3.5", item.isPinned ? "text-cyan-600 fill-cyan-500/20" : "text-slate-500")} />
+              <span>{item.isPinned ? "Unpin chat" : "Pin chat"}</span>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem

@@ -245,7 +245,7 @@ export const SopRulebookView: React.FC = () => {
 
       {/* Add/Edit Rule Modal Dialog matching Figma screenshot */}
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-[420px] bg-white rounded-[16px] p-6 shadow-2xl border border-slate-200/90 select-none">
+        <DialogContent className="w-[calc(100%-2rem)] max-w-[420px] bg-white rounded-[16px] p-5 sm:p-6 shadow-2xl border border-slate-200/90 select-none">
           {/* Custom Header with Blue Circle Pen Icon and Subtitle */}
           <div className="flex items-start justify-between pb-3">
             <div className="flex items-center gap-3">

@@ -16,6 +16,7 @@ interface MobileSidebarProps {
   onSelectChat: (id: string) => void
   onRenameChat?: (id: string, newTitle: string) => void
   onDeleteChat?: (id: string) => void
+  onTogglePin?: (id: string) => void
   onLogout?: () => void
   activeNav?: string
   onSelectNav?: (id: string) => void
@@ -31,6 +32,7 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({
   onSelectChat,
   onRenameChat,
   onDeleteChat,
+  onTogglePin,
   onLogout,
   activeNav,
   onSelectNav,
@@ -63,6 +65,7 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = ({
           }}
           onRenameChat={onRenameChat}
           onDeleteChat={onDeleteChat}
+          onTogglePin={onTogglePin}
         />
 
         <UserProfile user={user} onLogout={onLogout} />

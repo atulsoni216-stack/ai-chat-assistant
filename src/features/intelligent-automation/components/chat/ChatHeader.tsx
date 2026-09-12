@@ -23,16 +23,19 @@ export const ChatHeader: React.FC<ChatHeaderProps> = ({
   unreadNotificationsCount = 2,
 }) => {
   return (
-    <div className="relative flex items-center justify-between pb-4 pt-1 px-1 border-b border-slate-100/80 select-none">
+    <div className="relative flex items-center justify-between pb-4 pt-1 px-1 border-b border-slate-100/80 select-none gap-2">
       {/* Brand Title / Conversation Title */}
-      <div className="flex items-center gap-2">
-        <h2 className="text-[#323232] text-[17px] sm:text-[18px] font-semibold tracking-tight font-sans">
+      <div className="flex items-center gap-2 min-w-0 flex-1">
+        <h2
+          className="text-[#323232] text-[16px] sm:text-[18px] font-semibold tracking-tight font-sans truncate"
+          title={title}
+        >
           {title}
         </h2>
       </div>
 
       {/* Action Icons on the right */}
-      <div className="flex items-center gap-1 sm:gap-1.5">
+      <div className="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
         {/* Notification Bell button */}
         <Button
           variant="ghost"

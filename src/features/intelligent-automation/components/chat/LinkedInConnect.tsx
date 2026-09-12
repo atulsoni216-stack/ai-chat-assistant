@@ -11,12 +11,15 @@ export const LinkedInConnect: React.FC<LinkedInConnectProps> = ({
   onChange,
 }) => {
   return (
-    <div className="flex items-center gap-2 select-none">
+    <div className="flex items-center gap-1.5 sm:gap-2 select-none flex-shrink-0">
       {/* LinkedIn Monogram Icon */}
-      <div className="flex items-center gap-1.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer">
+      <div
+        className="flex items-center gap-1.5 text-slate-500 hover:text-slate-700 transition-colors cursor-pointer"
+        title="Connect to LinkedIn"
+      >
         <svg
           viewBox="0 0 24 24"
-          className="w-4 h-4 fill-current text-[#0a66c2]/70"
+          className="w-4 h-4 fill-current text-[#0a66c2]/70 flex-shrink-0"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.32a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.65 1.65 1.65 0 0 0 1.65-1.65 1.65 1.65 0 0 0-1.65-1.66Z" />
@@ -24,7 +27,7 @@ export const LinkedInConnect: React.FC<LinkedInConnectProps> = ({
 
         <label
           htmlFor="linkedin-toggle"
-          className="text-xs font-medium text-slate-500 hover:text-slate-700 cursor-pointer"
+          className="hidden sm:inline text-xs font-medium text-slate-500 hover:text-slate-700 cursor-pointer"
         >
           Connect to LinkedIn
         </label>
@@ -35,7 +38,7 @@ export const LinkedInConnect: React.FC<LinkedInConnectProps> = ({
         id="linkedin-toggle"
         checked={enabled}
         onCheckedChange={onChange}
-        className="data-[state=checked]:bg-[#0a66c2]"
+        className="data-[state=checked]:bg-[#0a66c2] scale-90 sm:scale-100"
         aria-label="Connect to LinkedIn toggle"
       />
     </div>

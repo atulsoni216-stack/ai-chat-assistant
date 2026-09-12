@@ -18,7 +18,7 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   }
 
   return (
-    <div className="relative min-h-screen w-screen flex items-center justify-center bg-[#F9FBFC] overflow-hidden select-none font-sans">
+    <div className="relative min-h-screen w-full flex items-center justify-center bg-[#F9FBFC] overflow-x-hidden overflow-y-auto select-none font-sans">
       {/* Background Decorative Mesh & Rounded Outlines */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {/* Soft Ambient Radial Glows */}
